@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from './cocktails.module.css';
 
 async function getCocktailsList() {
-    const res = await fetch('http://host.docker.internal:/cocktails', {method: 'GET'});
+    const res = await fetch('http://host.docker.internal/cocktails', {method: 'GET'});
     return res.json();
 }
 
