@@ -1,4 +1,4 @@
-import RootLayout from "../layout";
+import RootLayout from "../layout/cocktail";
 import Image from "next/image";
 
 import styles from './cocktails.module.css';
