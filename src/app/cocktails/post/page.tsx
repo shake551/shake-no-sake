@@ -73,7 +73,7 @@ export default function Page() {
                     <br/>
                     <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>＋</button>
                     <br/>
-                    <button type='submit'>登録</button>
+                    <button type='submit' className={styles.submitButton}>登録</button>
                 </form>
             </div>
         }/>
