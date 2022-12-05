@@ -1,21 +1,22 @@
 'use client';
-import { useState} from 'react';
+import {useState} from 'react';
 
 import RootLayout from "../../layout";
+import styles from './post.module.css';
 
 export default function Page() {
     let [materialCount, setMaterialCount] = useState<number[]>([]);
-
+    
     const handleAddMaterials = () => {
         setMaterialCount([...materialCount, 0]);
     }
-
+    
     const handleSubmit = async (event: any) => {
         event.preventDefault()
-
+        
         const materialList = []
-
-        for (let i=0; i<materialCount.length; i++) {
+        
+        for (let i = 0; i < materialCount.length; i++) {
             materialList.push({
                 name: event.target[`materialName${i}`].value,
                 quantity: {
@@ -24,42 +25,57 @@ export default function Page() {
                 }
             })
         }
-
+        
         const data = {
             name: event.target.name.value,
             materials: materialList
         }
-
+        
         const res = await fetch('http://localhost/cocktails',
-            {method: 'POST', body: JSON.stringify(data), headers: {
+            {
+                method: 'POST', body: JSON.stringify(data), headers: {
                     'Content-Type': 'application/json'
-                },})
+                },
+            })
         console.log(res)
     }
-
+    
     return (
         <RootLayout children={
-            <form onSubmit={(event) => handleSubmit(event)}>
-                <div>カクテル名</div>
-                <input name='name' type='text' />
-                <br />
-                {　materialCount.map((value, i) => {
-                    return (
-                        <>
-                            <h2>材料名</h2>
-                            <input name={'materialName'+i} type='text' />
-                            <h2>量</h2>
-                            <input name={'quantity'+i} type='text' />
-                            <h2>単位</h2>
-                            <input name={'unit'+i} type='text' />
-                        </>
-                    )
-                })　}
-                <br />
-                <button type='button' onClick={handleAddMaterials}>＋</button>
-                <br />
-                <button type='submit'>登録</button>
-            </form>
-        } />
+            <div className={styles.cocktailsDetailWrapper}>
+                <form onSubmit={(event) => handleSubmit(event)}>
+                    <div className={styles.formColumnName}>カクテル名</div>
+                    <input name='name' type='text' className={styles.formNameInputArea}/>
+                    <br/>
+                    <div className={styles.formColumnName}>材料リスト</div>
+                    {materialCount.map((value, i) => {
+                        return (
+                            <>
+                                <div className={styles.formColumnName}>材料名</div>
+                                <input name={'materialName' + i} type='text'
+                                       className={styles.formMaterialNameInputArea}/>
+                                
+                                <div className={styles.formQuantityWrapper}>
+                                    <div className={styles.formQuantityArea}>
+                                        <div className={styles.formColumnName}>量</div>
+                                        <input name={'quantity' + i} type='text'
+                                               className={styles.formMaterialNameInputArea}/>
+                                    </div>
+                                    <div className={styles.formQuantityArea}>
+                                        <div className={styles.formColumnName}>単位</div>
+                                        <input name={'unit' + i} type='text'
+                                               className={styles.formMaterialNameInputArea}/>
+                                    </div>
+                                </div>
+                            </>
+                        )
+                    })}
+                    <br/>
+                    <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>＋</button>
+                    <br/>
+                    <button type='submit'>登録</button>
+                </form>
+            </div>
+        }/>
     )
 }
