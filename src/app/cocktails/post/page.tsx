@@ -32,13 +32,14 @@ export default function Page() {
             materials: materialList
         }
         
-        const res = await fetch('http://localhost/cocktails',
+        await fetch('http://localhost/cocktails',
             {
                 method: 'POST', body: JSON.stringify(data), headers: {
                     'Content-Type': 'application/json'
                 },
             })
-        console.log(res)
+        
+        window.location.replace('/cocktails');
     }
     
     return (
@@ -73,7 +74,7 @@ export default function Page() {
                     })}
                     <br/>
                     <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>
-                        <PlusCircle size={100} />
+                        <PlusCircle size={100}/>
                     </button>
                     <br/>
                     <button type='submit' className={styles.submitButton}>登録</button>
