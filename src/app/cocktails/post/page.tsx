@@ -3,6 +3,7 @@ import {useState} from 'react';
 
 import RootLayout from "../../layout";
 import styles from './post.module.css';
+import {PlusCircle} from "react-feather";
 
 export default function Page() {
     let [materialCount, setMaterialCount] = useState<number[]>([]);
@@ -71,7 +72,9 @@ export default function Page() {
                         )
                     })}
                     <br/>
-                    <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>＋</button>
+                    <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>
+                        <PlusCircle size={100} />
+                    </button>
                     <br/>
                     <button type='submit' className={styles.submitButton}>登録</button>
                 </form>
