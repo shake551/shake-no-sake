@@ -28,8 +28,14 @@
     list-style: none;
 }
 
+.cocktailsCard:hover {
+    cursor: pointer;
+}
+
 .cocktailsCardImage {
     margin: 15%;
+    display: inline-flex;
+    vertical-align: top;
 }
 
 .cocktailsCardName {
