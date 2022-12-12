@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
 
-import RootLayout from "../../layout";
+import RootLayout from "../../layout/cocktail";
 import styles from './post.module.css';
 import {PlusCircle} from "react-feather";
 
