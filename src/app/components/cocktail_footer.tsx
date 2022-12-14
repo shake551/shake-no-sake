@@ -6,7 +6,7 @@ import styles from './footer.module.css';
 
 const accentColor = 'silver';
 
-export const Footer = memo(() => (
+export const CocktailFooter = memo(() => (
     <footer className={styles.footer}>
         <Link href={`/cocktails`}>
             <Home size={80} color={accentColor}/>
