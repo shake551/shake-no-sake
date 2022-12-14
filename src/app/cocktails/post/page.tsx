@@ -1,7 +1,7 @@
 'use client';
 import {useState} from 'react';
 
-import RootLayout from "../../layout/cocktail";
+import RootLayout from "../../layout";
 import styles from './post.module.css';
 import {PlusCircle} from "react-feather";
 
@@ -43,43 +43,46 @@ export default function Page() {
     }
     
     return (
-        <RootLayout children={
-            <div className={styles.cocktailsDetailWrapper}>
-                <form onSubmit={(event) => handleSubmit(event)}>
-                    <div className={styles.formColumnName}>カクテル名</div>
-                    <input name='name' type='text' className={styles.formNameInputArea}/>
-                    <br/>
-                    <div className={styles.formColumnName}>材料リスト</div>
-                    {materialCount.map((value, i) => {
-                        return (
-                            <>
-                                <div className={styles.formColumnName}>材料名</div>
-                                <input name={'materialName' + i} type='text'
-                                       className={styles.formMaterialNameInputArea}/>
-                                
-                                <div className={styles.formQuantityWrapper}>
-                                    <div className={styles.formQuantityArea}>
-                                        <div className={styles.formColumnName}>量</div>
-                                        <input name={'quantity' + i} type='text'
-                                               className={styles.formMaterialNameInputArea}/>
+        <RootLayout
+            page={ {name: 'cocktail', id: null} }
+            children={
+                <div className={styles.cocktailsDetailWrapper}>
+                    <form onSubmit={(event) => handleSubmit(event)}>
+                        <div className={styles.formColumnName}>カクテル名</div>
+                        <input name='name' type='text' className={styles.formNameInputArea}/>
+                        <br/>
+                        <div className={styles.formColumnName}>材料リスト</div>
+                        {materialCount.map((value, i) => {
+                            return (
+                                <>
+                                    <div className={styles.formColumnName}>材料名</div>
+                                    <input name={'materialName' + i} type='text'
+                                           className={styles.formMaterialNameInputArea}/>
+                                    
+                                    <div className={styles.formQuantityWrapper}>
+                                        <div className={styles.formQuantityArea}>
+                                            <div className={styles.formColumnName}>量</div>
+                                            <input name={'quantity' + i} type='text'
+                                                   className={styles.formMaterialNameInputArea}/>
+                                        </div>
+                                        <div className={styles.formQuantityArea}>
+                                            <div className={styles.formColumnName}>単位</div>
+                                            <input name={'unit' + i} type='text'
+                                                   className={styles.formMaterialNameInputArea}/>
+                                        </div>
                                     </div>
-                                    <div className={styles.formQuantityArea}>
-                                        <div className={styles.formColumnName}>単位</div>
-                                        <input name={'unit' + i} type='text'
-                                               className={styles.formMaterialNameInputArea}/>
-                                    </div>
-                                </div>
-                            </>
-                        )
-                    })}
-                    <br/>
-                    <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>
-                        <PlusCircle size={100}/>
-                    </button>
-                    <br/>
-                    <button type='submit' className={styles.submitButton}>登録</button>
-                </form>
-            </div>
-        }/>
+                                </>
+                            )
+                        })}
+                        <br/>
+                        <button type='button' onClick={handleAddMaterials} className={styles.addMaterialButton}>
+                            <PlusCircle size={100}/>
+                        </button>
+                        <br/>
+                        <button type='submit' className={styles.submitButton}>登録</button>
+                    </form>
+                </div>
+            }
+        />
     )
 }
