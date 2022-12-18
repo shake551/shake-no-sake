@@ -1,6 +1,6 @@
 import './globals.css'
-import {ShopFooter} from "./components/shop_footer";
-import {CocktailFooter} from "./components/cocktail_footer";
+import {ShopFooter} from "./components/shop/shop_footer";
+import {CocktailFooter} from "./components/cocktail/cocktail_footer";
 
 export default function RootLayout({ children, page }: { children: React.ReactNode, page: {name: string, id: number | null} }) {
     let footer = <></>;

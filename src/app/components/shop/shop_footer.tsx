@@ -2,7 +2,7 @@ import {memo} from 'react';
 import {Home, List, ShoppingCart} from 'react-feather';
 import Link from 'next/link';
 
-import styles from './footer.module.css';
+import styles from '../footer.module.css';
 
 const accentColor = 'silver';
 
