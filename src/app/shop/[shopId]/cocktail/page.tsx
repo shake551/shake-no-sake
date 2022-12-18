@@ -1,5 +1,5 @@
 import RootLayout from "../../../layout";
-import CocktailList from "../../../components/cocktailList";
+import CocktailList from "../../../components/cocktail/cocktailList";
 
 async function getShopCocktailsList(shopId: string) {
     const res = await fetch(`http://host.docker.internal/shop/${shopId}/cocktail`, {method: 'GET'});
