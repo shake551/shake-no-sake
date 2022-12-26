@@ -12,7 +12,7 @@ export default async function Page() {
         <RootLayout
             page={ {name: 'cocktail', id: null} }
             children={
-               <CocktailList cocktailList={cocktailsList} category={'cocktail'} />
+               <CocktailList cocktailList={cocktailsList} category={'cocktail'}  shopID={null}/>
             }
         />
     );

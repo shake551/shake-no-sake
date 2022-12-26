@@ -2,10 +2,10 @@ import Link from "next/link";
 import styles from "./cocktailList.module.css";
 import Image from "next/image";
 
-export default function CocktailElement(props: {id: number, name: string, category: string}) {
+export default function CocktailElement(props: {id: number, name: string, category: string, shopID: number | null}) {
     let baseURL = `/cocktails/${props.id}`
     if (props.category == 'shop') {
-        baseURL = `javascript:void(0)`;
+        baseURL = `/shop/${props.shopID}/cocktail/${props.id}`;
     }
     
     return (
