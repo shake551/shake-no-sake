@@ -1,0 +1,16 @@
+.cartButtonWrapper {
+    position: fixed;
+    width: 100%;
+    bottom: 200px;
+    text-align: center;
+}
+
+.addCartButton {
+    font-size: 50px;
+    width: 80%;
+    border-radius: 100px;
+    margin: 50px 50px 50px 50px;
+    padding: 30px;
+    background-color: silver;
+    color: black;
+}

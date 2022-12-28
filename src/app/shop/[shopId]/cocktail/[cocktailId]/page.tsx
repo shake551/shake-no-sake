@@ -1,5 +1,6 @@
 import RootLayout from "../../../../layout";
 import CocktailDetail from "../../../../components/cocktail/cocktailDetail";
+import AddCartButton from "../../../../components/shop/add_cart_button";
 
 
 async function getCocktailsDetail(shopId: string, cocktailId: string) {
@@ -12,9 +13,12 @@ export default async function Page({params}: { params: { shopId: string, cocktai
     console.log(cocktailsDetail)
     return (
         <RootLayout
-            page={ {name: 'shop', id: parseInt(params.shopId)} }
+            page={{name: 'shop', id: parseInt(params.shopId)}}
             children={
-                <CocktailDetail isShop={true} cocktailDetail={cocktailsDetail} />
+                <>
+                    <CocktailDetail isShop={true} cocktailDetail={cocktailsDetail}/>
+                    <AddCartButton />
+                </>
             }
         />
     )
