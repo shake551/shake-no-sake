@@ -8,9 +8,19 @@ export default function AddCartButton(params: { shopId: string, cocktailId: stri
         let newArray;
         if (exist) {
             let array = JSON.parse(exist);
-            newArray = array.concat({"id": params.cocktailId, "count": 1});
+            let flag = false;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i]["id"] == params.cocktailId) {
+                    newArray = array;
+                    newArray[i]["count"] += 1;
+                    flag = true;
+                }
+            }
+            if (!flag) {
+                newArray = array.concat({"id": params.cocktailId, "count": 1});
+            }
         } else {
-            newArray = [params.cocktailId];
+            newArray = [{"id": params.cocktailId, "count": 1}];
         }
         localStorage.setItem("cart", JSON.stringify(newArray));
     }
