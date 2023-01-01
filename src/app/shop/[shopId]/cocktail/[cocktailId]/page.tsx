@@ -17,7 +17,7 @@ export default async function Page({params}: { params: { shopId: string, cocktai
             children={
                 <>
                     <CocktailDetail isShop={true} cocktailDetail={cocktailsDetail}/>
-                    <AddCartButton />
+                    <AddCartButton cocktailId={params.cocktailId}  shopId={params.shopId}/>
                 </>
             }
         />
