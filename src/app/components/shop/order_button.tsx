@@ -9,7 +9,7 @@ async function order(shopId: string, tableId: string) {
             cocktailIDs.push(parseInt(data[i]['id']));
         }
     }
-    console.log(JSON.stringify(cocktailIDs))
+    console.log(tableId)
     const res = await fetch(`http://localhost/shop/${shopId}/table/${tableId}/order`,
         {
             method: 'POST',
@@ -21,7 +21,7 @@ async function order(shopId: string, tableId: string) {
     
     if (res.ok) {
         localStorage.removeItem('cart');
-        window.location.replace(`/shop/${shopId}/cocktail`);
+        window.location.replace(`/shop/${shopId}/table/${tableId}/cocktail`);
     }
 }
 

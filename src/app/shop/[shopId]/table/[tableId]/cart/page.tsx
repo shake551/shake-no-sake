@@ -42,7 +42,7 @@ export default function Page({params}: { params: { shopId: number, tableId: numb
     
     return (
         <RootLayout
-            page={{name: 'shop', id: params.shopId}}
+            page={{name: 'shop', shopId: params.shopId, tableId: params.tableId}}
             children={
             <>
                 {cocktailCartList}

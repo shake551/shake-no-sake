@@ -1,4 +1,4 @@
-import RootLayout from "../../layout";
+import RootLayout from "../../../../layout";
 
 
 async function getShopDetail(id: string) {
@@ -6,11 +6,11 @@ async function getShopDetail(id: string) {
     return res.json();
 }
 
-export default async function Page({params}: { params: { shopId: string } }) {
+export default async function Page({params}: { params: { shopId: string, tableId: number } }) {
     const shopDetail = await getShopDetail(params.shopId);
     return (
         <RootLayout
-            page={ {name: 'shop', id: parseInt(params.shopId)} }
+            page={ {name: 'shop', shopId: parseInt(params.shopId), tableId: params.tableId} }
             children={
                 <div>
                     <div>
