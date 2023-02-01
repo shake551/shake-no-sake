@@ -2,7 +2,7 @@
 import styles from './add_cart_button.module.css';
 import Link from "next/link";
 
-export default function AddCartButton(params: { shopId: string, cocktailId: string }) {
+export default function AddCartButton(params: { shopId: string, cocktailId: string, tableId: string }) {
     const onClick = () => {
         let exist = localStorage.getItem("cart");
         let newArray;
@@ -27,7 +27,7 @@ export default function AddCartButton(params: { shopId: string, cocktailId: stri
     
     return (
         <div className={styles.cartButtonWrapper}>
-            <Link href={`/shop/${params.shopId}/cocktail`}>
+            <Link href={`/shop/${params.shopId}/table/${params.tableId}/cocktail`}>
                 <button className={styles.addCartButton} onClick={onClick}>カートに追加</button>
             </Link>
         </div>
