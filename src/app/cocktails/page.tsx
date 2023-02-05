@@ -10,9 +10,9 @@ export default async function Page() {
     const cocktailsList = await getCocktailsList();
     return (
         <RootLayout
-            page={ {name: 'cocktail', id: null} }
+            page={ {name: 'cocktail', shopId: null, tableId: null} }
             children={
-               <CocktailList cocktailList={cocktailsList} category={'cocktail'}  shopID={null}/>
+               <CocktailList cocktailList={cocktailsList} category={'cocktail'}  shopID={null} tableId={null}/>
             }
         />
     );
