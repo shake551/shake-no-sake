@@ -12,7 +12,7 @@ export default async function Page({params}: { params: { shopId: string, tableId
         <RootLayout
             page={ {name: 'shop', shopId: parseInt(params.shopId), tableId: params.tableId} }
             children={
-                <CocktailList  cocktailList={cocktailsList} category={'shop'} shopID={parseInt(params.shopId)}/>
+                <CocktailList  cocktailList={cocktailsList} category={'shop'} shopID={parseInt(params.shopId)} tableId={params.tableId}/>
             }
         />
     );
